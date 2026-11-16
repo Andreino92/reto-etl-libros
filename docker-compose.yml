@@ -1,0 +1,15 @@
+# PostgreSQL local para el reto (credenciales de desarrollo, no personales)
+services:
+  db:
+    image: postgres:16
+    container_name: reto_etl_pg
+    environment:
+      POSTGRES_USER: reto
+      POSTGRES_PASSWORD: reto
+      POSTGRES_DB: retoetl
+    ports:
+      - "5432:5432"      # si el puerto 5432 está ocupado, use "5433:5432" y defina PGPORT=5433
+    volumes:
+      - reto_pgdata:/var/lib/postgresql/data
+volumes:
+  reto_pgdata:
